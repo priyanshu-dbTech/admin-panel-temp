@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import loginLogo from "../assets/images/logo.png";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -34,11 +35,7 @@ const LoginPage = () => {
                 <div className="flip-card-front">
                   <form className="login-form" onSubmit={handleLoginSubmit}>
                     <div className="logo mx-auto text-center">
-                      <img
-                        className="w-50"
-                        src="/src/assets/images/logo.png"
-                        alt="Logo"
-                      />
+                      <img className="w-50" src={loginLogo} alt="Logo" />
                     </div>
                     <div className="mb-3">
                       <label className="text-white">Email</label>

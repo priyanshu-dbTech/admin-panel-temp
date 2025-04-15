@@ -1,6 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Modal, Button, Form } from "react-bootstrap";
+import userBgImage from "../assets/images/young-couple.png";
+import userProfile from "../assets/images/profile-7.png";
+import userImage1 from "../assets/images/profile-5.png";
+import userImage2 from "../assets/images/profile-6.png";
+import userImage3 from "../assets/images/profile-7.png";
+
+import icon1 from "../assets/images/icon-1.png";
+import icon2 from "../assets/images/icon-2.png";
+import icon3 from "../assets/images/icon-3.png";
 
 import Swal from "sweetalert2";
 
@@ -19,11 +28,8 @@ const UserDetailsPage = () => {
     dob: "19 08 1992",
     hobbies: ["Writing", "Cooking", "Drawing"],
     lifestyle: ["Non-Drinker", "Non-smoker", "Sometimes"],
-    photos: [
-      "/src/assets/images/profile-5.png",
-      "/src/assets/images/profile-6.png",
-      "/src/assets/images/profile-7.png",
-    ],
+    photos: [userImage1, userImage2, userImage3],
+    icons: [icon1, icon2, icon3],
   };
 
   const handleDelete = () => {
@@ -61,7 +67,7 @@ const UserDetailsPage = () => {
                 <div className="col-md-12">
                   <img
                     className="w-100 timline img-fluid"
-                    src="/src/assets/images/young-couple.png"
+                    src={userBgImage}
                     alt="User Cover"
                   />
                 </div>
@@ -72,7 +78,7 @@ const UserDetailsPage = () => {
                         <div className="col-xl-3 col-lg-3 col-sm-3">
                           <img
                             className="img-small"
-                            src="/src/assets/images/profile-7.png"
+                            src={userProfile}
                             alt="User Avatar"
                           />
                         </div>
@@ -152,7 +158,7 @@ const UserDetailsPage = () => {
                           <div key={index} className="tag">
                             <img
                               className="mr-3"
-                              src={`/src/assets/images/icon-${index + 1}.png`}
+                              src={user.icons[index]}
                               alt={hobby}
                             />
                             <h6 className="mt-0 pl-3">{hobby}</h6>
@@ -166,7 +172,7 @@ const UserDetailsPage = () => {
                           <div key={index} className="tag">
                             <img
                               className="mr-3"
-                              src={`/src/assets/images/icon-${index + 1}.png`}
+                              src={user.icons[index]}
                               alt={life}
                             />
                             <h6 className="mt-0 pl-3">{life}</h6>

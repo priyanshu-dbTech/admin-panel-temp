@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import Dropify from "dropify"; // Assuming Dropify JS is imported from CDN or package
 import Swal from "sweetalert2";
+import icon1 from "../assets/images/icon-1.png";
+import icon2 from "../assets/images/icon-2.png";
+import icon3 from "../assets/images/icon-3.png";
+import icon4 from "../assets/images/icon-4.png";
+import icon5 from "../assets/images/icon-5.png";
 
 const HobbiesPage = () => {
   const [isEditing, setIsEditing] = useState(false);
@@ -10,31 +15,31 @@ const HobbiesPage = () => {
     {
       id: 1,
       name: "Photography",
-      icon: "/src/assets/images/icon-1.png",
+      icon: icon1,
       status: true,
     },
     {
       id: 2,
       name: "Cooking",
-      icon: "/src/assets/images/icon-2.png",
+      icon: icon2,
       status: true,
     },
     {
       id: 3,
       name: "Drawing",
-      icon: "/src/assets/images/icon-3.png",
+      icon: icon3,
       status: true,
     },
     {
       id: 4,
       name: "Yoga",
-      icon: "/src/assets/images/icon-4.png",
+      icon: icon4,
       status: true,
     },
     {
       id: 5,
       name: "Traveling",
-      icon: "/src/assets/images/icon-5.png",
+      icon: icon5,
       status: true,
     },
   ]);

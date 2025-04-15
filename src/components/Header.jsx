@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import $ from "jquery";
 import { useRef, useEffect } from "react";
+import logoImage from "../assets/images/logo-white.png";
+import avatar from "../assets/images/avatar.png";
 
 const Header = ({ isSideBarOpen, setIsSideBarOpen }) => {
   const sidebarRef = useRef(null);
@@ -92,11 +94,7 @@ const Header = ({ isSideBarOpen, setIsSideBarOpen }) => {
       {/* Navbar */}
       <header className="app-header">
         <Link to="/index" className="app-header__logo">
-          <img
-            className="w-50"
-            src="/src/assets/images/logo-white.png"
-            alt="Logo"
-          />
+          <img className="w-50" src={logoImage} alt="Logo" />
         </Link>
         {/* Sidebar toggle button */}
         <a
@@ -159,7 +157,7 @@ const Header = ({ isSideBarOpen, setIsSideBarOpen }) => {
         <div className="app-sidebar__user">
           <img
             className="app-sidebar__user-avatar"
-            src="/src/assets/images/avatar.png"
+            src={avatar}
             alt="User Avatar"
           />
           <div>
