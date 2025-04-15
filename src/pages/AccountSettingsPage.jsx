@@ -6,11 +6,19 @@ const AccountSettingsPage = () => {
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [passwordVisible, setPasswordVisible] = useState(false);
+  // With this:
+  const [visibleFields, setVisibleFields] = useState({
+    old: false,
+    new: false,
+    confirm: false,
+  });
 
-  // Function to handle password visibility toggle
-  const togglePasswordVisibility = () => {
-    setPasswordVisible(!passwordVisible);
+  // Then define this function:
+  const togglePasswordVisibility = (field) => {
+    setVisibleFields((prev) => ({
+      ...prev,
+      [field]: !prev[field],
+    }));
   };
 
   // Function to handle form submission
@@ -54,7 +62,7 @@ const AccountSettingsPage = () => {
                     </label>
                     <div className="input-group flex-nowrap">
                       <input
-                        type={passwordVisible ? "text" : "password"}
+                        type={visibleFields.old ? "text" : "password"}
                         className="form-control password-field"
                         id="old-password"
                         placeholder="**********"
@@ -68,11 +76,13 @@ const AccountSettingsPage = () => {
                         style={{
                           backgroundColor: "#e1e1e1",
                         }}
-                        onClick={togglePasswordVisibility}
+                        onClick={() => togglePasswordVisibility("old")}
                       >
                         <i
                           className={
-                            passwordVisible ? "fas fa-eye-slash" : "fas fa-eye"
+                            visibleFields.old
+                              ? "fas fa-eye-slash"
+                              : "fas fa-eye"
                           }
                         ></i>
                       </button>
@@ -86,7 +96,7 @@ const AccountSettingsPage = () => {
                     </label>
                     <div className="input-group flex-nowrap">
                       <input
-                        type={passwordVisible ? "text" : "password"}
+                        type={visibleFields.new ? "text" : "password"}
                         className="form-control password-field"
                         id="new-password"
                         placeholder="Enter Password"
@@ -100,11 +110,13 @@ const AccountSettingsPage = () => {
                         style={{
                           backgroundColor: "#e1e1e1",
                         }}
-                        onClick={togglePasswordVisibility}
+                        onClick={() => togglePasswordVisibility("new")}
                       >
                         <i
                           className={
-                            passwordVisible ? "fas fa-eye-slash" : "fas fa-eye"
+                            visibleFields.new
+                              ? "fas fa-eye-slash"
+                              : "fas fa-eye"
                           }
                         ></i>
                       </button>
@@ -118,7 +130,7 @@ const AccountSettingsPage = () => {
                     </label>
                     <div className="input-group flex-nowrap">
                       <input
-                        type={passwordVisible ? "text" : "password"}
+                        type={visibleFields.confirm ? "text" : "password"}
                         className="form-control password-field"
                         id="confirm-password"
                         placeholder="Enter Password"
@@ -132,11 +144,13 @@ const AccountSettingsPage = () => {
                         style={{
                           backgroundColor: "#e1e1e1",
                         }}
-                        onClick={togglePasswordVisibility}
+                        onClick={() => togglePasswordVisibility("confirm")}
                       >
                         <i
                           className={
-                            passwordVisible ? "fas fa-eye-slash" : "fas fa-eye"
+                            visibleFields.confirm
+                              ? "fas fa-eye-slash"
+                              : "fas fa-eye"
                           }
                         ></i>
                       </button>
